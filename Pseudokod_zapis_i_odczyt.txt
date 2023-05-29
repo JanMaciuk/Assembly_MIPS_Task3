@@ -1,0 +1,23 @@
+wybor:
+	
+	rodzajOperacji = new input
+	if (rodzajOperacji == 0) goto end
+	numerWiersza = new input
+	numerKolumny = new input
+	indeksAdresuWiersza = adresRam + (numerWiersza-1)*4
+	adresWiersza = (indeksAdresuWiersza)
+	adresDanych = adresWiersza + (numerKolumny-1)*4
+	if (rodzajOperacji < 0) {goto odczyt}
+	else {goto zapis}
+	
+
+odczyt:
+	$a0 = (adresDanych)
+	print($v0)
+	goto wybor
+
+zapis:
+	liczbaDoZapisania = new input
+	(adresDanych) = liczbaDoZapisania
+	goto wybor
+
