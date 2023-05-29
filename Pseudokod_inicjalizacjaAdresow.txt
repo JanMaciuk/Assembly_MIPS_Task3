@@ -1,0 +1,11 @@
+rozmiarAdresow to ilosc wierszy *4
+obecnyAdres = adresRAM + rozmiarAdresow
+pozycjaZapisu = adresRAM
+offset to ilosc kolumn razy 4
+koncowaPozycja = adresRam + iloscWierszy * 4
+
+petlaZapiszAdresy:
+	zapisz obecnyAdres na polu pozycjaZapisu
+	obecnyAdres = obecnyAdres + offset
+	pozycjaZapisu = pozycjaZapisu + 4
+	if (pozycjaZapisu < koncowaPozycja) {goto petla}

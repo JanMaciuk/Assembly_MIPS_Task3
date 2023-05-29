@@ -1,0 +1,18 @@
+pozycjaAdresuWiersza = adresRAM
+wiersz = 0
+
+petlaZmianaWiersza:
+	pozycjaZapisu = (pozycjaAdresuWiersza)
+	kolumna = 0
+	oblicz wiersz*100
+
+	wypelnienieWiersza:
+		wartoscDoZapisu = (wiersz*100)+(kolumna+1)
+		zapisz wartoscDoZapisu na polu pozycjaZapisu
+		pozycjaZapisu = pozycjaZapisu + 4
+		kolumna = kolumna + 1
+
+		if(kolumna < iloscKolumn) {goto wypelnienieWiersza}
+		wiersz = wiersz+1
+		pozycjaAdresuWiersza = pozycjaAdresuWiersza + 4
+		if(wiersz < iloscWierszy) {goto petlaZmianaWiersza}
